@@ -32,24 +32,7 @@ module.exports = function (app) {
         res.render("signup");
     });
 
-    //sign up page
 
-    app.post("/createuser", function (req, res) {
-        console.log("Creating");
-        //create user and hash
-        bcrypt.hash(req.body.password, 10, function (err, hash) {
-            db.login.create({
-                username: req.body.username,
-                password: hash
-            }).then(function (dbTodo) {
-
-                res.json(dbTodo);
-            }).catch(function (err) {
-                console.log(err);
-                res.json(err);
-            });
-        });
-    });
 
 //Get Login page
 
@@ -95,7 +78,7 @@ module.exports = function (app) {
 
         bcrypt.hash(req.body.password, 10, function (err, hash) {
             db.login.findOne({where: {username: req.body.username}}).then(function (result) {
-                console.log(hash);
+
 
                 bcrypt.compare(req.body.password, hash, function (err, res) {
                     if (res) {
@@ -109,6 +92,26 @@ module.exports = function (app) {
 
         });
 
+    });
+
+    //sign up page
+
+    app.post("/createuser", function (req, res) {
+        console.log("Creating");
+        //create user and hash
+        bcrypt.hash(req.body.password, 10, function (err, hash) {
+            db.login.create({
+                username: req.body.username,
+                password: hash
+            }).then(function (dbTodo) {
+
+                res.json(dbTodo);
+            }).catch(function (err) {
+                console.log(err);
+                res.json(err);
+            });
+
+        });
     });
 };
 
