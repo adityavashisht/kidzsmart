@@ -1080,12 +1080,12 @@ div#memory_board > div {
     background-size: 100%;
     background-position: center;
     border: #fff 1px solid;
-    width: 71px;
-    height: 71px;
+    width: 100px;
+    height: 100px;
     float: left;
     margin: 10px;
-    padding: 20px;
-    font-size: 64px;
+    padding-top: 5px;
+    font-size: 60px;
     cursor: pointer;
     text-align: center;
 }
