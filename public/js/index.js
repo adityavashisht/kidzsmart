@@ -46,7 +46,7 @@ var $foodName = $("#food-name");
 var $foodDish = $("#food-dish");
 var $foodIngredients = $("#food-ingredients");
 var $foodInstruction = $("#food-instruction");
-var $submitBtn = $("#submit");
+var $submitBtn = $("#addRecipeButton");
 var $foodList = $("#food-list");
 
 // The API object contains methods for each kind of request we'll make
@@ -90,8 +90,9 @@ var refreshFoods = function () {
                 })
                 .append($a);
 
-            var $button = $("<button>")
+            var $button = $("<button style=\"margin-left:25px;\">")
                 .addClass("btn btn-danger float-right delete")
+
                 .text("ｘ");
 
             $li.append($button);
